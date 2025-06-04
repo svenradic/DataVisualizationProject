@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a href="../index.html"
+        ><h1 class="logo">Vizualizacija Olimpijskih igara</h1></a
+      >
+      <ul class="nav-links">
+        <li>
+          <a href="numberOfMedalsThroughYears.html">📊 Broj medalja</a>
+        </li>
+        <li><a href="percentageOfAthletesBySex.html">🥧 Po spolu</a></li>
+        <li><a href="worldMap.html">🗺️ Karta</a></li>
+        <li><a href="lineChartAnimation.html">🎬 Animacija</a></li>
+      </ul>
+    </aside>
+
+    <div class="content">
+      <h1>Broj osvojenih medalja po državama</h1>
+      <div id="chart"></div>
+      <div
+        id="tooltip"
+        style="
+          position: absolute;
+          visibility: hidden;
+          background: #fff;
+          border: 1px solid #ccc;
+          padding: 6px;
+          border-radius: 4px;
+          font-size: 14px;
+        "
+      ></div>
+    </div>
+
+    <script src="../functions/numberOfMedalsThroughYears.js"></script>
+  </body>
+</html>

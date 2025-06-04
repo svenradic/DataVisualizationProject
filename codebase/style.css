@@ -1,9 +1,86 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 40px;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f4f6f8;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+.content {
+  align-self: center;
+  justify-items: center;
 }
 
-#chart {
+/* Sidebar stil */
+.sidebar {
+  width: 250px;
+  background-color: #1f77b4;
+  color: white;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.logo {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.nav-links li {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Glavni sadržaj */
+.content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+.content #chart {
   width: 1000px;
   height: 600px;
+}
+
+#map {
+  width: 1000px;
+  height: 600px;
+  margin-top: 40px;
+}
+
+#linechart {
+  width: 800px;
+  height: 400px;
+  margin-top: 30px;
+}
+#play-btn {
+  margin: 10px 0;
+  padding: 6px 12px;
+  font-size: 16px;
 }
