@@ -1,23 +1,25 @@
 body {
   margin: 0;
+  font-size: 20px;
   font-family: "Segoe UI", sans-serif;
   background-color: #f4f6f8;
   display: flex;
   height: 100vh;
   overflow: hidden;
 }
-a{
+a {
   text-decoration: none;
   color: inherit;
 }
 .content {
   align-self: center;
   justify-items: center;
+  width: auto;
 }
 
 /* Sidebar stil */
 .sidebar {
-  width: 250px;
+  width: min-content;
   background-color: #1f77b4;
   color: white;
   padding: 30px 20px;
@@ -64,18 +66,18 @@ a{
   overflow-y: auto;
 }
 .content #chart {
-  width: 1000px;
+  width: auto;
   height: 600px;
 }
 
 #map {
-  width: 1000px;
+  width: 800px;
   height: 600px;
   margin-top: 40px;
 }
 
 #linechart {
-  width: 800px;
+  width: auto;
   height: 400px;
   margin-top: 30px;
 }

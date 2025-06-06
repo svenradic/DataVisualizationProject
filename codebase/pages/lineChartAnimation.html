@@ -12,21 +12,23 @@
       <a href="../index.html"><h1 class="logo">Vizualizacija Olimpijskih igara</h1></a
       >
       <ul class="nav-links">
-        <li>
+         <li>
           <a href="numberOfMedalsThroughYears.html">📊 Broj medalja</a>
         </li>
-        <li><a href="percentageOfAthletesBySex.html">🥧 Po spolu</a></li>
+        <li><a href="percentageOfAthletesBySex.html">🥧 Postotak sportaša po spolu</a></li>
         <li><a href="worldMap.html">🗺️ Karta</a></li>
-        <li><a href="lineChartAnimation.html">🎬 Animacija</a></li>
+        <li><a href="lineChartAnimation.html">🎬 Broj medalja kroz godine</a></li>
+        <li><a href="heightWeightScatter.html">⚖️ Visina/Težina sportaša</a></li>
       </ul>
     </aside>
 
     <div class="content">
       <h1>Broj medalja kroz godine – animacija</h1>
-      <label for="country-select">Odaberi državu:</label>
-      <select id="country-select"></select>
+      <label for="country-select">Odaberi države:</label>
+      <select id="country-select" multiple size="5"></select>
       <div id="linechart"></div>
       <button id="play-btn">▶ Start</button>
+      <div id="legend" style="margin-top: 20px;"></div>
     </div>
 
     <script src="../functions/lineChartAnimation.js"></script>

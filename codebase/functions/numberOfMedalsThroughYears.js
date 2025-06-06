@@ -22,8 +22,25 @@ function showSportBreakdown(noc, data) {
     .attr("height", 500);
 
   const margin = { top: 40, right: 20, bottom: 100, left: 100 };
-  const width = 800 - margin.left - margin.right;
+  const width = 1000 - margin.left - margin.right;
   const height = 500 - margin.top - margin.bottom;
+
+  svg
+    .append("text")
+    .attr("class", "x label")
+    .attr("text-anchor", "middle")
+    .attr("x", width / 2)
+    .attr("y", height + margin.top + margin.bottom - 10)
+    .text("Sport");
+
+  svg
+    .append("text")
+    .attr("class", "y label")
+    .attr("text-anchor", "middle")
+    .attr("transform", "rotate(-90)")
+    .attr("x", -height / 2)
+    .attr("y", 20)
+    .text("Broj medalja");
 
   const g = svg
     .append("g")
@@ -98,7 +115,7 @@ function showSportBreakdown(noc, data) {
 }
 
 function numberOfMedalsThroughYears(data) {
-  const width = 1000;
+  const width = 900;
   const height = 600;
   const margin = { top: 40, right: 20, bottom: 100, left: 60 };
 
@@ -107,6 +124,23 @@ function numberOfMedalsThroughYears(data) {
     .append("svg")
     .attr("width", width)
     .attr("height", height);
+
+  svg
+    .append("text")
+    .attr("class", "x label")
+    .attr("text-anchor", "middle")
+    .attr("x", width / 2)
+    .attr("y", height - 10)
+    .text("Država (NOC kod)");
+
+  svg
+    .append("text")
+    .attr("class", "y label")
+    .attr("text-anchor", "middle")
+    .attr("transform", "rotate(-90)")
+    .attr("x", -height / 2)
+    .attr("y", 15)
+    .text("Broj medalja");
   // filtriramo samo redove koji imaju dodijeljenu medalju
   const medalWinners = data.filter((d) => d.Medal !== "NA");
 

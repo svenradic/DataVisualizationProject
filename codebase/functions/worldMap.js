@@ -1,5 +1,5 @@
 function worldMap(data) {
-  const mapWidth = 1000;
+  const mapWidth = 850;
   const mapHeight = 600;
 
   d3.select("body")
