@@ -16,15 +16,30 @@
         <li>
           <a href="numberOfMedalsThroughYears.html">📊 Broj medalja</a>
         </li>
-        <li><a href="percentageOfAthletesBySex.html">🥧 Postotak sportaša po spolu</a></li>
+        <li>
+          <a href="percentageOfAthletesBySex.html"
+            >🥧 Postotak sportaša po spolu</a
+          >
+        </li>
         <li><a href="worldMap.html">🗺️ Karta</a></li>
-        <li><a href="lineChartAnimation.html">🎬 Broj medalja kroz godine</a></li>
-        <li><a href="heightWeightScatter.html">⚖️ Visina/Težina sportaša</a></li>
+        <li>
+          <a href="lineChartAnimation.html">🎬 Broj medalja kroz godine</a>
+        </li>
+        <li>
+          <a href="heightWeightScatter.html">⚖️ Visina/Težina sportaša</a>
+        </li>
       </ul>
     </aside>
 
     <div class="content">
       <h1>Broj osvojenih medalja po državama</h1>
+      <label for="medal-type">Vrsta medalje:</label>
+      <select id="medal-type">
+        <option value="ALL">Sve</option>
+        <option value="Gold">Zlatne</option>
+        <option value="Silver">Srebrne</option>
+        <option value="Bronze">Brončane</option>
+      </select>
       <div id="chart"></div>
       <div
         id="tooltip"

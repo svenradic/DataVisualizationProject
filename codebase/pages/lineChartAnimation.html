@@ -9,16 +9,25 @@
   </head>
   <body>
     <aside class="sidebar">
-      <a href="../index.html"><h1 class="logo">Vizualizacija Olimpijskih igara</h1></a
+      <a href="../index.html"
+        ><h1 class="logo">Vizualizacija Olimpijskih igara</h1></a
       >
       <ul class="nav-links">
-         <li>
+        <li>
           <a href="numberOfMedalsThroughYears.html">📊 Broj medalja</a>
         </li>
-        <li><a href="percentageOfAthletesBySex.html">🥧 Postotak sportaša po spolu</a></li>
+        <li>
+          <a href="percentageOfAthletesBySex.html"
+            >🥧 Postotak sportaša po spolu</a
+          >
+        </li>
         <li><a href="worldMap.html">🗺️ Karta</a></li>
-        <li><a href="lineChartAnimation.html">🎬 Broj medalja kroz godine</a></li>
-        <li><a href="heightWeightScatter.html">⚖️ Visina/Težina sportaša</a></li>
+        <li>
+          <a href="lineChartAnimation.html">🎬 Broj medalja kroz godine</a>
+        </li>
+        <li>
+          <a href="heightWeightScatter.html">⚖️ Visina/Težina sportaša</a>
+        </li>
       </ul>
     </aside>
 
@@ -26,9 +35,20 @@
       <h1>Broj medalja kroz godine – animacija</h1>
       <label for="country-select">Odaberi države:</label>
       <select id="country-select" multiple size="5"></select>
-      <div id="linechart"></div>
-      <button id="play-btn">▶ Start</button>
-      <div id="legend" style="margin-top: 20px;"></div>
+      <label for="medal-type">Vrsta medalje:</label>
+      <select id="medal-type">
+        <option value="ALL">Sve</option>
+        <option value="Gold">Zlatne</option>
+        <option value="Silver">Srebrne</option>
+        <option value="Bronze">Brončane</option>
+      </select>
+      <div class="linechart-content">
+        <div>
+          <div id="linechart"></div>
+          <button id="play-btn">▶ Start</button>
+        </div>
+        <div id="legend" style="margin-top: 20px"></div>
+      </div>
     </div>
 
     <script src="../functions/lineChartAnimation.js"></script>

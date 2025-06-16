@@ -1,3 +1,37 @@
+function updateLegend(selectedCountries) {
+  // Makni postojeću legendu
+  d3.select("#legend").html("");
+
+  const legendSvg = d3
+    .select("#legend")
+    .append("svg")
+    .attr("width", 300)
+    .attr("height", selectedCountries.length * 25);
+
+  const legend = legendSvg
+    .selectAll(".legend-item")
+    .data(selectedCountries)
+    .enter()
+    .append("g")
+    .attr("class", "legend-item")
+    .attr("transform", (d, i) => `translate(0, ${i * 25})`);
+
+  legend
+    .append("rect")
+    .attr("x", 10)
+    .attr("y", 5)
+    .attr("width", 18)
+    .attr("height", 18)
+    .attr("fill", (d, i) => d3.schemeCategory10[i % 10]);
+
+  legend
+    .append("text")
+    .attr("x", 35)
+    .attr("y", 18)
+    .attr("font-size", "14px")
+    .text((d) => d);
+}
+
 function heightWeightScatter(data) {
   const countries = Array.from(new Set(data.map((d) => d.NOC))).sort();
   const dropdown = d3.select("#country-select");
@@ -128,6 +162,8 @@ function heightWeightScatter(data) {
           .style("left", `${event.pageX + 15}px`);
       })
       .on("mouseout", () => tooltip.style("visibility", "hidden"));
+
+    updateLegend(selectedCountries);
   }
 
   dropdown.on("change", function () {

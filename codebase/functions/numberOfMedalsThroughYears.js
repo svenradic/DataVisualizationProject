@@ -1,5 +1,12 @@
 function showSportBreakdown(noc, data) {
-  const filtered = data.filter((d) => d.NOC === noc && d.Medal !== "NA");
+  const selectedMedal = d3.select("#medal-type").property("value");
+
+  const filtered = data.filter(
+    (d) =>
+      d.NOC === noc &&
+      d.Medal !== "NA" &&
+      (selectedMedal === "ALL" || d.Medal === selectedMedal)
+  );
 
   const sportCounts = d3
     .rollups(
@@ -110,8 +117,13 @@ function showSportBreakdown(noc, data) {
     .attr("cursor", "pointer")
     .on("click", () => {
       d3.select("#chart").html("");
-      numberOfMedalsThroughYears(data); // funkcija koja vraća prvi prikaz
+      showSportBreakdown(data); // funkcija koja vraća prvi prikaz
     });
+
+  d3.select("#medal-type").on("change", () => {
+    d3.select("#chart").html(""); // obriši stari graf
+    numberOfMedalsThroughYears(data); // nacrtaj novi s filtriranim podacima
+  });
 }
 
 function numberOfMedalsThroughYears(data) {
@@ -142,7 +154,12 @@ function numberOfMedalsThroughYears(data) {
     .attr("y", 15)
     .text("Broj medalja");
   // filtriramo samo redove koji imaju dodijeljenu medalju
-  const medalWinners = data.filter((d) => d.Medal !== "NA");
+  const selectedMedal = d3.select("#medal-type").property("value");
+
+  const medalWinners = data.filter(
+    (d) =>
+      d.Medal !== "NA" && (selectedMedal === "ALL" || d.Medal === selectedMedal)
+  );
 
   // grupiramo po državi (NOC kod)
   const medalCount = d3.rollup(
@@ -214,9 +231,14 @@ function numberOfMedalsThroughYears(data) {
       tooltip.style("visibility", "hidden");
     });
 
+  d3.select("#medal-type").on("change", () => {
+    d3.select("#chart").html(""); // obriši stari graf
+    numberOfMedalsThroughYears(data); // nacrtaj novi s filtriranim podacima
+  });
+
   svg.selectAll("rect").on("click", (event, d) => {
-    tooltip.style("visibility", "hidden"); // sakrij tooltip
-    const selectedNOC = d.noc; // npr. "USA"
+    tooltip.style("visibility", "hidden");
+    const selectedNOC = d.noc;
     showSportBreakdown(selectedNOC, data);
   });
 }

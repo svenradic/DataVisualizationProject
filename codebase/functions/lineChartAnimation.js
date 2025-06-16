@@ -96,10 +96,17 @@ function lineChartAnimation(data) {
 
   function updateLineChart(selectedCountries) {
     // Mapiraj svaku zemlju na njen niz (year, count)
+    const selectedMedal = d3.select("#medal-type").property("value");
+
     const allSeries = selectedCountries.map((country) => {
       const series = Array.from(
         d3.rollup(
-          data.filter((d) => d.Medal !== "NA" && d.NOC === country),
+          data.filter(
+            (d) =>
+              d.NOC === country &&
+              d.Medal !== "NA" &&
+              (selectedMedal === "ALL" || d.Medal === selectedMedal)
+          ),
           (v) => v.length,
           (d) => +d.Year
         ),
@@ -107,7 +114,6 @@ function lineChartAnimation(data) {
       ).sort((a, b) => a.year - b.year);
       return { country, values: series };
     });
-
     const allYears = allSeries.flatMap((s) => s.values.map((d) => d.year));
     const allCounts = allSeries.flatMap((s) => s.values.map((d) => d.count));
 

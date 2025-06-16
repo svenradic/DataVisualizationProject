@@ -11,7 +11,18 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.linechart-content{
+ display: flex;
+ flex-direction: row;
+}
+.scatter-content{
+  display: flex;
+  flex-direction: row;
+}
+
 .content {
+  text-align: center;
   align-self: center;
   justify-items: center;
   width: auto;
@@ -85,4 +96,7 @@ a {
   margin: 10px 0;
   padding: 6px 12px;
   font-size: 16px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
