@@ -117,7 +117,7 @@ function showSportBreakdown(noc, data) {
     .attr("cursor", "pointer")
     .on("click", () => {
       d3.select("#chart").html("");
-      showSportBreakdown(data); // funkcija koja vraća prvi prikaz
+      numberOfMedalsThroughYears(data); // funkcija koja vraća prvi prikaz
     });
 
   d3.select("#medal-type").on("change", () => {
